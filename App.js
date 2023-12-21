@@ -11,7 +11,7 @@ function reducer(state, action) {
 
 function makeInitialState() {
   return {
-    board: make2DArray(3, 3, null),
+    board: make2DArray(3, 3, 'O'),
   };
 }
 

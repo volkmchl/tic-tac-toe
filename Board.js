@@ -2,15 +2,12 @@ import { View, Text, StyleSheet } from 'react-native';
 
 import Row from './Row';
 
-export default function Board(props) {
+export default function Board({board}) {
     return (
         <View style={styles.container}>
-            <Row/>
-            {
-                props.board.map((row) => 
-                     <Row row={row} />
-                )
-            }
+            {board.map((row, rowIndex) => (
+                <Row key={rowIndex} cellValues={row} />
+            ))}
         </View>
     );
 }
@@ -18,7 +15,8 @@ export default function Board(props) {
 const styles = StyleSheet.create({
     container: {
         backgroundColor: 'red',
-        alignItems: "center",
-        justifyContent: "center",
-    }
-})
+        gap: 8,
+        padding: 8,
+        borderRadius: 8,
+    },
+});

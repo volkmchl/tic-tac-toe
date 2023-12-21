@@ -1,19 +1,20 @@
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function Row(props) {
+import Cell from './Cell';
+
+export default function Row({cellValues}) {
     return (
         <View style={styles.container}>
-            <Text>Row</Text>
+            {cellValues.map((cellValue, columnIndex) => (
+                <Cell key={columnIndex} cellValue={cellValue} />
+            ))}
         </View>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'blue',
-        alignItems: "center",
-        justifyContent: "center",
         flexDirection: 'row',
-        gap: 20,
+        gap: 8,
     }
 })
